@@ -10,7 +10,7 @@
 // declarative programming means one view will be
 // declared before the next view, so in order to get
 // to the child views of tabbar view or onboarding view
-// the parent child, AppView must compile
+// the parent view, AppView must compile
 import SwiftUI
 
 // this struct accepts two parameters that conform to a View
