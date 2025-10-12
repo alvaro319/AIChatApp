@@ -21,8 +21,10 @@ struct ProfileView: View {
                     }
                 }
         }
+        // Because we are presenting the SettingsView in a sheet,
+        // we are no longer in the parent Navigation Stack above
         .sheet(isPresented: $showSettingsView) {
-            Text("SettingsView")
+            SettingsView()
         }
     }
     

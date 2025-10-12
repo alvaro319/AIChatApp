@@ -12,18 +12,33 @@ import SwiftUI
 
 struct AppView: View {
 
-    // this will store the state of whether the user is logged in or not
-    // defaults to false but if value is stored for it, it will use stored value
-    // only usable in a view
-    // we can also use this line of code at the top of every view
-    // if we need it for some reason
-    @AppStorage("showTabbarView") var showTabBar: Bool = false
-    
+    /*
+        this will store the state of whether the user is logged
+        in or not. Defaults to false but if value is stored for
+        it, it will use stored value only usable in a view
+        we can also use this line of code at the top of every
+        view if we need it for some reason
+        AppStorage can only be used within a view
+
+     @AppStorage("showTabbarView") var showTabBar: Bool = false
+     */
+
+    /*
+     if we need to pass the value of showTabBar through many views when onBoarding,
+     that approach gets cumbersome. It is best to make it available through the
+     environment. To pass a value through the environment, the value must be
+     a property from an observable class, therefore we create an observable class
+     with showTabBar bool
+     Note, if a class is marked with @Observable macro, the instantiation requires
+     the @State property wrapper instead of @StateObject when marking a class with ObservableObject
+     */
+    @State var applicationState: AppState = AppState()
+
     var body: some View {
         // two closures are passed into AppViewBuilder
         // the tabbar view and the onboarding view
         AppViewBuilder(
-            showTabBar: showTabBar,
+            showTabBar: applicationState.showTabBar,
             tabbarView: {
                 TabBarView()
 //                ZStack {
@@ -39,9 +54,7 @@ struct AppView: View {
 //                }
             }
         )
-        .onTapGesture {
-            showTabBar.toggle()
-        }
+        .environment(applicationState)
     }
 }
 
@@ -121,8 +134,8 @@ struct AppView: View {
  */
 
 #Preview("AppView - Tabbar") {
-    AppView(showTabBar: true)
+    AppView(applicationState: AppState(showTabBar: true))
 }
 #Preview("AppView - Onboarding") {
-    AppView(showTabBar: false)
+    AppView(applicationState: AppState(showTabBar: false))
 }
