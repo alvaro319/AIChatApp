@@ -13,6 +13,9 @@ struct SettingsView: View {
     @Environment(AppState.self) private var appState
 
     var body: some View {
+        // This view is presented as a sheet, therefore,
+        // we must add its own NavigationStack because it is
+        // in its own environment
         NavigationStack {
             List {
 

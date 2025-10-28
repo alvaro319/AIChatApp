@@ -16,6 +16,13 @@ struct WelcomeView: View {
     @State var imageName: String = Constants.randomImageString
 
     var body: some View {
+
+        // IMPORTANT! Only need one NavigationStack in a view hierarchy.
+        // if the parent view has a NavigationStack, it's children does
+        // NOT! Unless a view is opened as a sheet, then and only then
+        // does that view require it's own NavigationStack because the
+        // sheet isn't considered a child and instead it has its own
+        // independent environment for the parent-child hierarchy
         NavigationStack {
             
             VStack {
@@ -33,7 +40,7 @@ struct WelcomeView: View {
         }
     }
 
-    private var titleSection : some View {
+    private var titleSection: some View {
         VStack(spacing: 8) {
             // using native fonts and native Colors
             // automatically supports dark mode thus
@@ -48,11 +55,10 @@ struct WelcomeView: View {
 
     }
 
-    private var ctaButtons : some View {
+    private var ctaButtons: some View {
         VStack(spacing: 8) {
             NavigationLink {
-                OnboardingCompletedView()
-
+                OnboardingIntroView()
             } label: {
                 Text("Get Started")
                     .callToActionButton()
@@ -74,7 +80,7 @@ struct WelcomeView: View {
         }
     }
 
-    private var policyLinks : some View {
+    private var policyLinks: some View {
         HStack {
             Link(destination: URL(string: Constants.privacyPolicyUrlStr)!) {
                 Text("Terms of Service")
