@@ -39,7 +39,8 @@ struct OnboardingColorView: View {
 
                 // this means if selectedColor isn't nil, show Continue button
                 if let selectedColor {
-                    ctaButton
+                    // ctaButton // convert to a function
+                    ctaButton(selectedColor: selectedColor)
                     // animates continue button
                     .transition(AnyTransition.move(edge: .bottom))
                 }
@@ -49,6 +50,7 @@ struct OnboardingColorView: View {
             .background(.background) // simpler, check Dark Mode
         })
         .animation(.bouncy, value: selectedColor)
+        .toolbar(.hidden, for: .navigationBar)// hides back button
 
     }
 
@@ -99,9 +101,21 @@ struct OnboardingColorView: View {
 
     }
 
+    // convert to a function because we need to pass in a variable
+    /*
     private var ctaButton: some View {
         NavigationLink {
             OnboardingCompletedView()
+        } label: {
+            Text("Continue")
+                .callToActionButton()
+        }
+    }
+     */
+
+    private func ctaButton(selectedColor: Color) -> some View {
+        NavigationLink {
+            OnboardingCompletedView(selectedColor: selectedColor)
         } label: {
             Text("Continue")
                 .callToActionButton()
@@ -115,4 +129,7 @@ struct OnboardingColorView: View {
     NavigationStack {
         OnboardingColorView()
     }
+    // required because OnboardingCompletedView expects an environment
+    // variable so need to send in  an
+    .environment(AppState())
 }

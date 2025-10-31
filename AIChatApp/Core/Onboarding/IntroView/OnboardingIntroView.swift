@@ -50,6 +50,7 @@ struct OnboardingIntroView: View {
             // places padding of 24 around the entire VStack
             .padding(24)
             .font(.title3)
+            .toolbar(.hidden, for: .navigationBar) // hides back button
         }
 }
 

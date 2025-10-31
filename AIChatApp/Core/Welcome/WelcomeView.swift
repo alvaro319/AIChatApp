@@ -9,7 +9,9 @@ import SwiftUI
 
 struct WelcomeView: View {
 
-     @Environment(AppState.self) private var appState
+    // an environment object is passed into this View from AppView
+    // make sure to include .environment(AppState()) in the Preview below
+    @Environment(AppState.self) private var appState
 
     // didn't make imageName private in case we want to pass in a custome
     // image from our Preview below
@@ -101,6 +103,9 @@ struct WelcomeView: View {
 
     @Previewable @State var applicationState: AppState = AppState()
 
+    // When the WelcomeView() is called from AppView,
+    // it passes in an environment Object, namely an
+    // AppState object. We mimic that here in the preview
     WelcomeView()
         .environment(applicationState)
 }
