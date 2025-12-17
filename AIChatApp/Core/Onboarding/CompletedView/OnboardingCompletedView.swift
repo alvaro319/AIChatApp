@@ -45,6 +45,7 @@ struct OnboardingCompletedView: View {
         .toolbar(.hidden, for: .navigationBar) // hides back button
     }
 
+    // Call to Action Button
     private var ctaButton: some View {
         Button {
             // Finish onboarding and enter app!
@@ -71,7 +72,7 @@ struct OnboardingCompletedView: View {
 
     /*
      When we click on the Finish button we want to save the selected color to the user's
-     profile. There is a lot of logic that we need to do  in order to get to the user's profile.
+     profile. There is a lot of logic that we need to do in order to get to the user's profile.
      We haven't setup our database nor our user's profile....
 
      Going to assume that saving the selected Color to the user's profile is going to be
@@ -81,7 +82,7 @@ struct OnboardingCompletedView: View {
      */
     private func onFinishedButtonPressed() {
 
-        // started to save, shpw a progress view
+        // started to save, show a progress view
         isCompletingProfileSetup = true
 
          Task {

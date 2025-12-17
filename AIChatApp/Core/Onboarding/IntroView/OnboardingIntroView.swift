@@ -55,7 +55,7 @@ struct OnboardingIntroView: View {
 }
 
 #Preview {
-    // add this navigation stack so that Continue but can navigate to next screen
+    // add this navigation stack so that Continue can navigate to next screen
     // it is added only so preview can navigate
     NavigationStack {
         OnboardingIntroView()

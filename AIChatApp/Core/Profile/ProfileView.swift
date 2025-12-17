@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProfileView: View {
-    
+    // @Environment(AppState.self) private var appState
     @State private var showSettingsView: Bool = false
     
     var body: some View {
@@ -24,7 +24,8 @@ struct ProfileView: View {
         // Because we are presenting the SettingsView in a sheet,
         // we are no longer in the parent Navigation Stack above
         .sheet(isPresented: $showSettingsView) {
-            SettingsView()
+             // Text("SettingsView")
+             SettingsView()
         }
     }
     
@@ -44,4 +45,5 @@ struct ProfileView: View {
 
 #Preview {
     ProfileView()
+        .environment(AppState())
 }

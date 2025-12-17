@@ -30,7 +30,7 @@ struct TabBarView: View {
 // If we use one single NavigationStack with a TabView inside,
 // when we navigate to a destination link, we lose the entire
 // tabItems at the bottom, for example, when we navigate to
-// AnotherView, we lose the tab bar itmes on the bottom
+// AnotherView, we lose the tab bar items on the bottom
 // Additionally, with this approach we lose the display of the
 // navigatonTitles because SwiftUI thinks the TabView is just
 // one tabItem. If you notice when we click the tabItems,
@@ -88,4 +88,7 @@ struct TabBarView: View {
 
 #Preview {
     TabBarView()
+    // AppView passes an environment object to the WelcomeView and the TabBarView
+    // We include the environment object here so the previews work properly
+        .environment(AppState())
 }

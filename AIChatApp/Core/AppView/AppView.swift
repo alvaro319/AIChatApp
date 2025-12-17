@@ -7,7 +7,7 @@
 import SwiftUI
 
 // two different screens:
-// Tabbar - after user is signed in
+// TabBarView - after user is signed in
 // onboarding flow - when user is signed out
 
 struct AppView: View {
@@ -37,6 +37,7 @@ struct AppView: View {
     var body: some View {
         // two closures are passed into AppViewBuilder
         // the tabbar view and the onboarding view
+        // if showTabBar true, show TabBarView(), otherwise, show WelcomeView()
         AppViewBuilder(
             showTabBar: applicationState.showTabBar,
             tabbarView: {

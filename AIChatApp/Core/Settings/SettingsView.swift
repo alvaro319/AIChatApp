@@ -43,5 +43,7 @@ struct SettingsView: View {
 
 #Preview {
     SettingsView()
+        // if we pull from the environment an AppState Object in the view above,
+        // then we must include a .environment object here in the preview
         .environment(AppState())
 }

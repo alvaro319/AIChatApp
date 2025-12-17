@@ -78,6 +78,13 @@ struct OnboardingColorView: View {
                 ) {
                     // Colors are not identifiable so must use id param,
                     // the hashable value we are going to loop on
+
+                    // Displays all the colors defined in profileColors,
+                    // when a user taps a color, selectedColor is set to
+                    // the tapped color and the grid of colors is rerendered
+                    // where the tapped color now has a padding of 10 around it
+                    // showing a small ring of the accent color of this app
+                    // defined in the Assets folder
                     ForEach(profileColors, id: \.self) {color in
                         Circle()
                             // first fill the circle with an accent color

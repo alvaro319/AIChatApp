@@ -13,15 +13,15 @@ struct WelcomeView: View {
     // make sure to include .environment(AppState()) in the Preview below
     @Environment(AppState.self) private var appState
 
-    // didn't make imageName private in case we want to pass in a custome
+    // didn't make imageName private in case we want to pass in a custom
     // image from our Preview below
     @State var imageName: String = Constants.randomImageString
 
     var body: some View {
 
         // IMPORTANT! Only need one NavigationStack in a view hierarchy.
-        // if the parent view has a NavigationStack, it's children does
-        // NOT! Unless a view is opened as a sheet, then and only then
+        // if the parent view has a NavigationStack, it's children does!
+        // Unless a view is opened as a sheet, then and only then
         // does that view require it's own NavigationStack because the
         // sheet isn't considered a child and instead it has its own
         // independent environment for the parent-child hierarchy
@@ -34,6 +34,7 @@ struct WelcomeView: View {
                 titleSection
                     .padding(.top, 24)
 
+                // cta - Call To Action Buttons
                 ctaButtons
                     .padding(16)
 
