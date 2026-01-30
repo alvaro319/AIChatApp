@@ -34,7 +34,7 @@ struct HeroCellView: View {
             }
         }
         .overlay(
-            //overlayed text will be aligned on bottom, leading side (left)
+            // overlayed text will be aligned on bottom, leading side (left)
             alignment: .bottomLeading,
             content: {
                 VStack(alignment: .leading, spacing: 4) {
@@ -53,8 +53,8 @@ struct HeroCellView: View {
                 // to make the text really pop we can create a linear gradient
                 // using one base color often looks the best
                 .frame(maxWidth: .infinity, alignment: .leading)// pushes gradient to the edge
-                //places a linear gradient in the background of the VStack that
-                //contains the Text title and subtitle
+                // places a linear gradient in the background of the VStack that
+                // contains the Text title and subtitle
                 .background(
                     LinearGradient(
                         colors: [
@@ -88,9 +88,9 @@ struct HeroCellView: View {
             HeroCellView(subTitle: nil)
                 .frame(width: 300, height: 200)
         }
-        //placing the HeroCellViews in a VStack along with a
-        //maxWidth frame set to .infinity places the scroll all
-        //the way to the right edge
+        // placing the HeroCellViews in a VStack along with a
+        // maxWidth frame set to .infinity places the scroll all
+        // the way to the right edge
         .frame(maxWidth: .infinity)
     }
 

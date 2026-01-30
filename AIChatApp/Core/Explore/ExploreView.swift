@@ -8,17 +8,17 @@
 import SwiftUI
 
 struct ExploreView: View {
+
+    let avatar = AvatarModel.mock
+
     var body: some View {
         NavigationStack {
-            VStack {
-                Text("Explore")
-                NavigationLink("Click Me") {
-                    // Navigates to Another View
-                    Text("Another View")
-                        // if we want to hide the tabbar
-                        // .toolbar(.hidden, for: .tabBar)
-                }
-            }
+            HeroCellView(
+                title: avatar.name,
+                subTitle: avatar.characterDescription,
+                imageName: avatar.profileImageName
+            )
+            .frame(height: 200)
             .navigationTitle("Explore")
         }
     }
