@@ -16,9 +16,13 @@ import Foundation
  variables will be modified.
  We don't want anyone to update an avatar model object from outside the struct
 
+ This is an immutable struct
+ All the data in this struct are let constants
+ The data model inside is not going to change, it is immutable
+ We are not going to allow any data to be mutated outside the struct
 
  */
-struct AvatarModel {
+struct AvatarModel: Hashable {
 
     let avatarId: String
     let name: String?
